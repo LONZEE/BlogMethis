@@ -18,6 +18,8 @@ User.init(
             unique: true,
             validate: {
                 isEmail: true
+            // },defaultValue: "default@email.com" // This is not recommended      
+        
             }
         },
         password: {
@@ -25,20 +27,23 @@ User.init(
             allowNull: false,
             validate: {
                 len: [8]
-            }
+            },   
         }
     },
-    {
-        hooks: {
-            async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
-            },
-            async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
-            }
+    { hooks: {
+        beforeCreate: (user, options) => {
+          console.log(user.dataValues);  // Add this line
+          if (user.password) {
+            user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+          }
         },
+        async beforeUpdate(updatedUserData) {
+          console.log(updatedUserData);  // Add this line
+          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+          return updatedUserData;
+        }
+      },
+       
         sequelize,
         timestamps: false,
         freezeTableName: true,
