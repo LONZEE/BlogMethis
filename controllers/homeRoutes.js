@@ -31,7 +31,7 @@ router.get('/project/:id', async (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['comment_text'],
+                    attributes: ['username'],
                 },
             ],
         });

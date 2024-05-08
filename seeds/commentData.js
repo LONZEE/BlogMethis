@@ -23,8 +23,6 @@ const commentData = [
     }
 ];
 
-const seedComments = () => Comment.bulkCreate(commentData)
-.then(() => console.log('Comment created successfully'))
-.catch(error => console.error('Error creating users: ', error));
+const seedComments = () => Comment.bulkCreate(commentData);
 
 module.exports = seedComments;

@@ -8,7 +8,7 @@ const projectData = [
         project_start_date: "2021-01-01",
         project_end_date: "2021-12-31",
         project_status: "In Progress",
-        project_manager: "John Doe"
+        user_id: 1
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ const projectData = [
         project_start_date: "2021-01-01",
         project_end_date: "2021-12-31",
         project_status: "In Progress",
-        project_manager: "Jane Doe"
+        user_id: 2
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ const projectData = [
         project_start_date: "2021-01-01",
         project_end_date: "2021-12-31",
         project_status: "In Progress",
-        project_manager: "John Doe"
+        user_id: 3
     },
     {
         id: 4,
@@ -35,7 +35,7 @@ const projectData = [
         project_start_date: "2021-01-01",
         project_end_date: "2021-12-31",
         project_status: "In Progress",
-        project_manager: "Jane Doe"
+        user_id: 4
     }
 ];
 

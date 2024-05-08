@@ -3,12 +3,12 @@ const Project = require('./Project');
 const User = require('./User');
 
 User.hasMany(Project, {
-    foreignKey: 'project_manager',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
 Project.belongsTo(User, {
-    foreignKey: 'project_manager'
+    foreignKey: 'user_id'
 });
 
 Project.hasMany(Comment, {
@@ -28,6 +28,7 @@ User.hasMany(Comment, {
 Comment.belongsTo(User, {
     foreignKey: 'user_id'
 });
+
 
 
 module.exports = { Comment, Project, User };
